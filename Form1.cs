@@ -25,7 +25,7 @@ namespace WinFormsApp104Array
             int sum = 0;
             int min = numbers.Length > 0 ? numbers[0] : 0;
             int max = numbers.Length > 0 ? numbers[0] : 0;
-            
+
             for (int i = 0; i < numbers.Length; i++)
             {
                 sum += numbers[i];
@@ -42,7 +42,7 @@ namespace WinFormsApp104Array
 
             lblCount.Text = "จำนวนสมาชิกข้อมูล: " + numbers.Length;
             lblSum.Text = "ผลรวม: " + sum;
-            lblAverage.Text = "ค่าเฉลี่ย: " + average;
+            lblAverage.Text = "ค่าเฉลี่ย: " + average.ToString("F2");
             lblMin.Text = "ค่าต่ำสุด: " + min;
             lblMax.Text = "ค่าสูงสุด: " + max;
         }
@@ -61,5 +61,29 @@ namespace WinFormsApp104Array
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string[,] data = new string[5, 3]
+            {
+                { "Alice", "แอลิซ", "กรุงเทพ" },
+                { "Bob", "บ็อบ", "เชียงใหม่" },
+                { "Charlie", "ชาร์ลี", "ภูเก็ต" },
+                { "Diana", "ไดอาน่า", "ขอนแก่น" },
+                { "Ethan", "อีธาน", "ชลบุรี" }
+            };
+            int rows = data.GetLength(0);
+            int cols = data.GetLength(1);
+            string Result = "";
+            for (int i = 0; i < rows; i++)
+            {
+                Result += "ข้อมูลที่" + (i + 1) + ": ";
+                Result += "ชื่อจริง : " + data[i, 0] + ", ";
+                Result += "ชื่อเล่น : " + data[i, 1] + ", ";
+                Result += "จังหวัด : " + data[i, 2] + Environment.NewLine;
+            }
+            textBox2.Text = Result;
+        }
     }
 }
+
